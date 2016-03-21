@@ -57,7 +57,6 @@
 		72E82BCB1A83A3FF008B3E2F /* MGCMonthPlannerEKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E82BCA1A83A3FF008B3E2F /* MGCMonthPlannerEKViewController.m */; };
 		72E8D24F18F98F1C00024582 /* MGCMonthMiniCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E8D24E18F98F1C00024582 /* MGCMonthMiniCalendarView.m */; };
 		72E8D25918FC474500024582 /* MGCReusableObjectQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E8D25818FC474500024582 /* MGCReusableObjectQueue.m */; };
-		72E9B9101C8E34020070EDD3 /* MGCMonthPlannerHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E9B90F1C8E34020070EDD3 /* MGCMonthPlannerHeaderView.m */; };
 		72E9B9161C919EF20070EDD3 /* settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 72E9B9151C919EF20070EDD3 /* settings.storyboard */; };
 		72E9B9191C91E3520070EDD3 /* MonthSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72E9B9181C91E3520070EDD3 /* MonthSettingsViewController.m */; };
 		72EF07F41A3D8D13005699CA /* MGCDayPlannerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EF07F31A3D8D13005699CA /* MGCDayPlannerViewController.m */; };
@@ -610,7 +609,6 @@
 				72EF07FF1A3D9DF8005699CA /* WeekViewController.m in Sources */,
 				72B5D953180D9A93004ADB86 /* MGCTimedEventsViewLayout.m in Sources */,
 				72AE502A1A641419004DAF44 /* MGCInteractiveEventView.m in Sources */,
-				72E9B9101C8E34020070EDD3 /* MGCMonthPlannerHeaderView.m in Sources */,
 				72E8D24F18F98F1C00024582 /* MGCMonthMiniCalendarView.m in Sources */,
 				72B5D92E180D7840004ADB86 /* MGCEventCell.m in Sources */,
 				72E82BCB1A83A3FF008B3E2F /* MGCMonthPlannerEKViewController.m in Sources */,
