@@ -1537,7 +1537,7 @@ static const CGFloat kMaxHourSlotHeight = 150.;
 
 - (void)setupSubviews
 {
-    CGFloat allDayEventsViewHeight = 2;
+    CGFloat allDayEventsViewHeight = 0;
 	if (self.showsAllDayEvents) {
 		allDayEventsViewHeight = fmaxf(self.allDayEventCellHeight + 4, self.allDayEventsView.contentSize.height);
 		allDayEventsViewHeight = fminf(allDayEventsViewHeight, self.allDayEventCellHeight * 2.5 + 6);

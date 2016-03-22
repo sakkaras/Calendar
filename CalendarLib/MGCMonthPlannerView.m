@@ -698,7 +698,7 @@ typedef enum
         [self addSubview:self.eventsView];
     }
     
-    self.headerBorderLayer.frame = CGRectMake(0, self.headerHeight, self.bounds.size.width, 1);
+    self.headerBorderLayer.frame = CGRectMake(0, self.headerHeight, self.bounds.size.width, 0);
     
     CGFloat xPos = self.layout.monthInsets.left;
     for (int i = 0; i < 7; i++) {
