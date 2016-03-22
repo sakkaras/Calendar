@@ -43,7 +43,6 @@ static NSString* const MonthRowViewKind = @"MonthRowViewKind";
 
 @property (nonatomic, weak) id<MGCMonthPlannerViewLayoutDelegate> delegate;
 @property (nonatomic) UIEdgeInsets monthInsets;
-@property (nonatomic) CGFloat rowHeight;
 @property (nonatomic) CGFloat dayHeaderHeight;
 
 - (CGFloat)widthForColumnRange:(NSRange)range;

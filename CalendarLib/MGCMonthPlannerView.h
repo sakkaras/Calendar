@@ -49,12 +49,6 @@
 @property (nonatomic) NSCalendar *calendar;
 
 /*!
-	@abstract	Returns the height of a row of days in the month planner view.
-	@discussion The default value is 140.
- */
-@property (nonatomic) CGFloat rowHeight;
-
-/*!
 	@abstract	Returns the height of the header showing days of week.
 	@discussion The default value is 35.
 				It can be set to 0 to hide the header.

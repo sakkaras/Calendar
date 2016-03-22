@@ -107,7 +107,6 @@ typedef enum
     _dateFormatter = [NSDateFormatter new];
     _dateFormatter.calendar = _calendar;
     _dateFormatter.dateFormat = kDefaultDateFormat;
-    _rowHeight = isiPad ? 140. : 60.;
     _dayCellHeaderHeight = 30;
     _headerHeight = 35;
     _itemHeight = 16;
@@ -608,7 +607,6 @@ typedef enum
 {
     if (!_eventsView) {
         MGCMonthPlannerViewLayout *layout = [MGCMonthPlannerViewLayout new];
-        layout.rowHeight = self.rowHeight;
         layout.dayHeaderHeight = self.dayCellHeaderHeight;
         layout.delegate = self;
         
@@ -668,7 +666,6 @@ typedef enum
     //NSLog(@"invalidateLayout");
     
     if (self.bounds.size.width != 0) {
-        self.layout.rowHeight = self.rowHeight;
         [self.layout invalidateLayout];
         //[self.layout prepareLayout];
         

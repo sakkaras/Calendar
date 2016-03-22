@@ -65,7 +65,6 @@
 {
 	if (self = [super init]) {
 		_monthInsets = UIEdgeInsetsMake(20, 0, 20, 0);
-		_rowHeight = 140;
 		_dayHeaderHeight = 28;
 	}
 	return self;
@@ -102,7 +101,7 @@
 			UICollectionViewLayoutAttributes *attribs = [UICollectionViewLayoutAttributes layoutAttributesForSupplementaryViewOfKind:MonthRowViewKind withIndexPath:path];
 			CGFloat x = [self widthForColumnRange:NSMakeRange(0, col)];
 			CGFloat width = [self widthForColumnRange:NSMakeRange(col, colRange.length)];
-			attribs.frame = CGRectMake(x, y + self.dayHeaderHeight, width, self.rowHeight - self.dayHeaderHeight);
+			attribs.frame = CGRectMake(x, y + self.dayHeaderHeight, width, width - self.dayHeaderHeight);
 			attribs.zIndex = 1;
 			[rowsInfo setObject:attribs forKey:path];
 
@@ -112,11 +111,11 @@
 				attribs = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:path];
 				x = [self widthForColumnRange:NSMakeRange(0, col)];
 				width = [self widthForColumnRange:NSMakeRange(col, 1)];
-				attribs.frame = CGRectMake(x, y, width, self.rowHeight);
+				attribs.frame = CGRectMake(x, y, width, width);
 				[dayCellsInfo setObject:attribs forKey:path];
 			}
 			
-			y += self.rowHeight;
+			y += width;
 			col = 0;
 		}
 			
