@@ -51,7 +51,11 @@
 		_hourSlotHeight = 65;
 		_insetsHeight = 45;
 		_timeColumnWidth = 40;
-		_font = [UIFont boldSystemFontOfSize:12];
+        if ([[UIFont class] respondsToSelector:@selector(systemFontOfSize:weight:)]) {
+            _font = [UIFont systemFontOfSize:12.0 weight:UIFontWeightLight];
+        } else {
+            _font = [UIFont systemFontOfSize:12.0];
+        }
 		_timeColor = [UIColor lightGrayColor];
 		_currentTimeColor = [UIColor redColor];
 		_rounding = 15;
