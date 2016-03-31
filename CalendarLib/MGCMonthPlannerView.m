@@ -642,7 +642,7 @@ typedef enum
     if (_dayLabels == nil) {
         NSDateFormatter *formatter = [NSDateFormatter new];
         formatter.calendar = self.calendar;
-        NSArray *days = formatter.shortStandaloneWeekdaySymbols;
+        NSArray *days = formatter.veryShortStandaloneWeekdaySymbols;
         
         NSMutableArray *labels = [NSMutableArray array];
         for (int i = 0; i < 7; i++) {
@@ -652,7 +652,12 @@ typedef enum
             // days array is zero-based, sunday first :
             // translate to get firstWeekday at position 0
             int weekday = (i + self.calendar.firstWeekday - 1 + days.count) % (int)days.count;
-            label.text = [days objectAtIndex:weekday];
+            if (_attributesForDayLabels == nil) {
+                label.text = [days objectAtIndex:weekday];
+            } else {
+                label.attributedText = [[NSAttributedString alloc] initWithString:[days objectAtIndex:weekday]
+                                                                       attributes:_attributesForDayLabels];
+            }
             
             [labels addObject:label];
         }
@@ -1144,6 +1149,9 @@ typedef enum
 		view.numberOfRows = numRows;
 		view.firstColumn = firstColumn;
 		view.lastColumn = lastColumn == 0 ? 7 : lastColumn;
+        if (self.gridColor != nil) {
+            view.gridColor = self.gridColor;
+        }
 
 		[view setNeedsDisplay];
 		

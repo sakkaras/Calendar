@@ -74,6 +74,10 @@
  */
 @property (nonatomic) CGFloat itemHeight;
 
+@property (nonatomic, strong) NSDictionary *attributesForDayLabels;
+
+@property (nonatomic, strong) UIColor *gridColor;
+
 
 /*!
 	@abstract	The object that provides the data for the month planner view

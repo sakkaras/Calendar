@@ -18,6 +18,8 @@
 {
     [super viewDidLoad];
     self.monthPlannerView.dayCellHeaderHeight = 30;
+    self.monthPlannerView.attributesForDayLabels = @{ NSForegroundColorAttributeName: [UIColor purpleColor] };
+    self.monthPlannerView.gridColor = [UIColor orangeColor];
 }
 
 #pragma mark - MGCMonthPlannerViewController
@@ -65,11 +67,11 @@
        [attrStr processCircleMarksInRange:NSMakeRange(0, attrStr.length)];
    }
 
-    NSMutableParagraphStyle *para = [NSMutableParagraphStyle new];
-    para.alignment = NSTextAlignmentRight;
-    para.tailIndent = -6;
-    
-    [attrStr addAttributes:@{ NSParagraphStyleAttributeName: para } range:NSMakeRange(0, attrStr.length)];
+//    NSMutableParagraphStyle *para = [NSMutableParagraphStyle new];
+//    para.alignment = NSTextAlignmentRight;
+//    para.tailIndent = -6;
+//    
+//    [attrStr addAttributes:@{ NSParagraphStyleAttributeName: para } range:NSMakeRange(0, attrStr.length)];
 
     return attrStr;
 }

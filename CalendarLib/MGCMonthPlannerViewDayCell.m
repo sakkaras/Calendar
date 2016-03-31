@@ -30,8 +30,6 @@
 
 #import "MGCMonthPlannerViewDayCell.h"
 
-static const CGFloat kHeaderMargin = 1;
-
 
 @implementation MGCMonthPlannerViewDayCell
 
@@ -74,8 +72,12 @@ static const CGFloat kHeaderMargin = 1;
 {
     [super layoutSubviews];
     
-    CGRect frame = CGRectMake(0, 0, self.contentView.bounds.size.width, self.headerHeight);
-    self.dayLabel.frame =  CGRectInset(frame, kHeaderMargin, kHeaderMargin);
+    [self.dayLabel sizeToFit];
+    
+    CGRect frame = self.dayLabel.frame;
+    frame.origin.x = self.contentView.bounds.size.width - frame.size.width - 10.0;
+    frame.origin.y = 10.0;
+    self.dayLabel.frame = frame;
 }
 
 @end
