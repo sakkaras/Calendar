@@ -177,7 +177,7 @@ static const CGFloat kMaxHourSlotHeight = 150.;
     _currentTimeColor = [UIColor redColor];
     _eventIndicatorDotColor = [UIColor blueColor];
 	_showsAllDayEvents = YES;
-    _eventsViewInnerMargin = 45.;
+    _eventsViewInnerMargin = 5.0;
 	_allDayEventCellHeight = 20;
 	_pagingEnabled = YES;
 	_zoomingEnabled = YES;
@@ -1706,6 +1706,7 @@ static const CGFloat kMaxHourSlotHeight = 150.;
     dayCell.headerHeight = self.dayHeaderHeight;
     dayCell.separatorColor = self.daySeparatorsColor;
     dayCell.dotColor = self.eventIndicatorDotColor;
+    dayCell.topMargin = self.eventsViewInnerMargin;
 
     NSDate *date = [self dateFromDayOffset:indexPath.section];
     

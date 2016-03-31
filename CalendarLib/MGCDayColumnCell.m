@@ -70,6 +70,7 @@ static const CGFloat dotSize = 4;
 		
 		_leftBorder = [CALayer layer];
 		[self.contentView.layer addSublayer:_leftBorder];
+        _topMargin = 0.0;
 	}
     return self;
 }
@@ -134,7 +135,7 @@ static const CGFloat dotSize = 4;
     CGRect borderFrame = CGRectZero;
     if (self.accessoryTypes & MGCDayColumnCellAccessoryBorder) {
         CGFloat width = 1. / [UIScreen mainScreen].scale;
-        borderFrame = CGRectMake(0, self.headerHeight, width, self.contentView.bounds.size.height-self.headerHeight);
+        borderFrame = CGRectMake(0, self.headerHeight + self.topMargin, width, self.contentView.bounds.size.height-self.headerHeight);
     }
     else if (self.accessoryTypes & MGCDayColumnCellAccessorySeparator) {
         CGFloat width = 2. / [UIScreen mainScreen].scale;
