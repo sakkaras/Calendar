@@ -24,6 +24,7 @@
     self.dayPlannerView.backgroundColor = [UIColor clearColor];
     self.dayPlannerView.backgroundView = [UIView new];
     self.dayPlannerView.backgroundView.backgroundColor = [UIColor whiteColor];
+    self.dayPlannerView.timeColumnWidth = 42;
     
     if (isiPad) {
         //NSLog(@"---------------- iPAD ------------------");

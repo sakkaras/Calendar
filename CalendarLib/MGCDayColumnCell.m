@@ -134,11 +134,11 @@ static const CGFloat dotSize = 4;
     // border
     CGRect borderFrame = CGRectZero;
     if (self.accessoryTypes & MGCDayColumnCellAccessoryBorder) {
-        CGFloat width = 1. / [UIScreen mainScreen].scale;
+        CGFloat width = 1.;
         borderFrame = CGRectMake(0, self.headerHeight + self.topMargin, width, self.contentView.bounds.size.height-self.headerHeight - self.topMargin);
     }
     else if (self.accessoryTypes & MGCDayColumnCellAccessorySeparator) {
-        CGFloat width = 2. / [UIScreen mainScreen].scale;
+        CGFloat width = 2.;
         borderFrame = CGRectMake(0, 0, width, self.contentView.bounds.size.height);
     }
     

@@ -76,6 +76,10 @@
     return attrStr;
 }
 
+- (void)monthPlannerView:(MGCMonthPlannerView *)view didSelectDayCellAtDate:(NSDate *)date {
+    NSLog(@"%@", date);
+}
+
 #pragma mark - CalendarViewControllerNavigation
 
 - (NSDate*)centerDate

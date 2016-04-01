@@ -157,12 +157,13 @@
 
 - (void)drawRect:(CGRect)rect
 {
-	const CGFloat kSpacing = 5.;
+    const CGFloat leftSpacing = 0;
+    const CGFloat rightSpacing = 10;
 	const CGFloat dash[2]= {2, 3};
     
 	CGContextRef context = UIGraphicsGetCurrentContext();
 	
-    CGSize markSizeMax = CGSizeMake(self.timeColumnWidth - 2.*kSpacing, CGFLOAT_MAX);
+    CGSize markSizeMax = CGSizeMake(self.timeColumnWidth - (leftSpacing + rightSpacing), CGFLOAT_MAX);
     
 	// calculate rect for current time mark
 	NSTimeInterval currentTime = -[[self.calendar mgc_startOfDayForDate:[NSDate date]] timeIntervalSinceNow];
@@ -175,9 +176,9 @@
 	
 	// draw current time mark
 	if (self.showsCurrentTime && [self canDisplayTime:currentTime]) {
-        rectCurTime =  CGRectMake(kSpacing, y - markSize.height/2., markSizeMax.width, markSize.height);
+        rectCurTime =  CGRectMake(leftSpacing, y - markSize.height/2., markSizeMax.width, markSize.height);
         [markAttrStr drawInRect:rectCurTime];
-		CGRect lineRect = CGRectMake(self.timeColumnWidth - kSpacing, y, self.bounds.size.width - self.timeColumnWidth + kSpacing, 1);
+		CGRect lineRect = CGRectMake(self.timeColumnWidth - leftSpacing - rightSpacing, y, self.bounds.size.width - self.timeColumnWidth + leftSpacing + rightSpacing, 1);
         CGContextSetFillColorWithColor(context, self.currentTimeColor.CGColor);
 		UIRectFill(lineRect);
 	}
@@ -187,7 +188,7 @@
     markSize = [floatingMarkAttrStr boundingRectWithSize:markSizeMax options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
 	
     y = [self yOffsetForTime:self.timeMark rounded:YES];
-    CGRect rectTimeMark = CGRectMake(kSpacing, y - markSize.height/2., markSizeMax.width, markSize.height);
+    CGRect rectTimeMark = CGRectMake(leftSpacing, y - markSize.height/2., markSizeMax.width, markSize.height);
     
     BOOL drawTimeMark = self.timeMark != 0 && [self canDisplayTime:self.timeMark];
     
@@ -198,14 +199,14 @@
         markSize = [markAttrStr boundingRectWithSize:markSizeMax options:NSStringDrawingUsesLineFragmentOrigin context:nil].size;
 
         y = (i - self.hourRange.location) * self.hourSlotHeight + self.insetsHeight;
-		CGRect r = CGRectMake(kSpacing, y - markSize.height / 2., markSizeMax.width, markSize.height);
+		CGRect r = CGRectMake(leftSpacing, y - markSize.height / 2., markSizeMax.width, markSize.height);
 
 		if (!CGRectIntersectsRect(r, rectCurTime) || !self.showsCurrentTime) {
             [markAttrStr drawInRect:r];
  		}
         
         CGContextSetStrokeColorWithColor(context, self.timeColor.CGColor);
-        CGContextSetLineWidth(context, [UIScreen mainScreen].scale == 1 ? 1 : .5);
+        CGContextSetLineWidth(context, 1);
 		CGContextSetLineDash(context, 0, NULL, 0);
 		CGContextMoveToPoint(context, self.timeColumnWidth, y),
 		CGContextAddLineToPoint(context, self.timeColumnWidth + rect.size.width, y);
