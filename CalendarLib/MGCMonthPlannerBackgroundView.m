@@ -57,7 +57,7 @@
 	CGFloat rowHeight = self.numberOfRows > 0 ? (self.bounds.size.height / self.numberOfRows) : self.bounds.size.height;
 	
     CGContextSetStrokeColorWithColor(c, self.gridColor.CGColor);
-	CGContextSetLineWidth(c, .5);
+	CGContextSetLineWidth(c, 1.0);
 	
 	CGContextBeginPath(c);
     
