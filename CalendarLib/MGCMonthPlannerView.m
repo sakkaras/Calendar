@@ -516,6 +516,10 @@ typedef enum
     cell.selected = YES;
 }
 
+- (void)deselectDayCellAtIndexPath:(NSIndexPath *)indexPath {
+    [self.eventsView deselectItemAtIndexPath:indexPath animated:NO];
+}
+
 - (void)deselectEventCellAtIndex:(NSUInteger)index date:(NSDate*)date
 {
     MGCEventView *cell = [self cellForEventAtIndex:index date:date];
