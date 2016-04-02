@@ -33,6 +33,7 @@
 
 
 @class MGCEventView;
+@class MGCMonthPlannerViewDayCell;
 
 @protocol MGCMonthPlannerViewDataSource;
 @protocol MGCMonthPlannerViewDelegate;
@@ -51,7 +52,7 @@
 /*!
 	@abstract	Returns the height of the header showing days of week.
 	@discussion The default value is 35.
-				It can be set to 0 to hide the header.
+ It can be set to 0 to hide the header.
  */
 @property (nonatomic) CGFloat headerHeight;
 
@@ -82,14 +83,14 @@
 /*!
 	@abstract	The object that provides the data for the month planner view
 	@discussion The data source must adopt the `MGCMonthPlannerViewDataSource` protocol.
-				The month planner view view maintains a weak reference to the data source object.
+ The month planner view view maintains a weak reference to the data source object.
  */
 @property (nonatomic, weak) id<MGCMonthPlannerViewDataSource> dataSource;
 
 /*!
 	@abstract	The object acting as the delegate of the month planner View.
-	@discussion The delegate must adopt the `MGCMonthPlannerViewDelegate` protocol. 
-				The Calendar View maintains a weak reference to the delegate object.
+	@discussion The delegate must adopt the `MGCMonthPlannerViewDelegate` protocol.
+ The Calendar View maintains a weak reference to the delegate object.
  */
 @property (nonatomic, weak) id<MGCMonthPlannerViewDelegate> delegate;
 
@@ -106,8 +107,9 @@
  */
 @property (nonatomic, copy) MGCDateRange *dateRange;
 
-
+- (void)registerClass:(Class)objectClass forDayCellReuseIdentifier:(NSString*)reuseIdentifier;
 - (void)registerClass:(Class)objectClass forEventCellReuseIdentifier:(NSString*)reuseIdentifier;
+- (MGCMonthPlannerViewDayCell *)dequeueReusableDayCellWithIdentifier:(NSString *)reuseIdentifier forItemAtIndexPath:(NSIndexPath *)indexPath;
 - (MGCEventView*)dequeueReusableCellWithIdentifier:(NSString*)reuseIdentifier forEventAtIndex:(NSUInteger)index date:(NSDate*)date;
 - (void)scrollToDate:(NSDate*)date animated:(BOOL)animated;
 - (void)reloadEvents;
@@ -147,11 +149,13 @@
 
 /*!
 	@abstract   Asks the delegate for the attributed string of the day header for given date.
-    @param		view		The month planner view requesting the information.
+ @param		view		The month planner view requesting the information.
 	@param		date		The date for the header.
 	@return     The attributed string to draw.
  */
 - (NSAttributedString*)monthPlannerView:(MGCMonthPlannerView*)view attributedStringForDayHeaderAtDate:(NSDate*)date;
+
+- (MGCMonthPlannerViewDayCell *)monthPlannerView:(MGCMonthPlannerView *)view dayCellAtIndexPath:(NSIndexPath *)indexPath forDate:(NSDate *)date;
 
 - (void)monthPlannerViewDidScroll:(MGCMonthPlannerView*)view;
 - (BOOL)monthPlannerView:(MGCMonthPlannerView*)view shouldSelectEventAtIndex:(NSUInteger)index date:(NSDate*)date;
