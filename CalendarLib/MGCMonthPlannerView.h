@@ -119,7 +119,7 @@
 - (MGCEventView*)eventCellAtPoint:(CGPoint)pt date:(NSDate**)date index:(NSUInteger*)index;
 - (NSDate*)dayAtPoint:(CGPoint)pt;
 - (void)selectEventCellAtIndex:(NSUInteger)index date:(NSDate*)date;
-- (void)deselectDayCellAtIndexPath:(NSIndexPath *)indexPath;
+- (void)deselectCurrentlySelectedDayCell;
 - (void)deselectEventCellAtIndex:(NSUInteger)index date:(NSDate*)date;
 - (void)endInteraction;
 

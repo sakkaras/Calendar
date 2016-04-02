@@ -516,8 +516,8 @@ typedef enum
     cell.selected = YES;
 }
 
-- (void)deselectDayCellAtIndexPath:(NSIndexPath *)indexPath {
-    [self.eventsView deselectItemAtIndexPath:indexPath animated:NO];
+- (void)deselectCurrentlySelectedDayCell {
+    [self.eventsView deselectItemAtIndexPath:self.eventsView.indexPathsForSelectedItems.firstObject animated:NO];
 }
 
 - (void)deselectEventCellAtIndex:(NSUInteger)index date:(NSDate*)date
