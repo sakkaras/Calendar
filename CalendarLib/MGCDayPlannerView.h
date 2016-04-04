@@ -653,4 +653,6 @@ typedef enum : NSUInteger {
  */
 - (void)dayPlannerView:(MGCDayPlannerView*)view didDeselectEventOfType:(MGCEventType)type atIndex:(NSUInteger)index date:(NSDate*)date;
 
+- (void)dayPlannerViewDidTapEmptySpace:(MGCDayPlannerView *)view;
+
 @end

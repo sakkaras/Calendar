@@ -113,6 +113,7 @@
 - (MGCEventView*)dequeueReusableCellWithIdentifier:(NSString*)reuseIdentifier forEventAtIndex:(NSUInteger)index date:(NSDate*)date;
 - (void)scrollToDate:(NSDate*)date animated:(BOOL)animated;
 - (void)reloadEvents;
+- (void)reloadAll;
 - (void)reloadEventsInRange:(MGCDateRange*)range;
 - (NSArray*)visibleEventCells;
 - (MGCEventView*)cellForEventAtIndex:(NSUInteger)index date:(NSDate*)date;
@@ -163,7 +164,7 @@
 - (void)monthPlannerView:(MGCMonthPlannerView*)view didSelectEventAtIndex:(NSUInteger)index date:(NSDate*)date;
 - (BOOL)monthPlannerView:(MGCMonthPlannerView*)view shouldDeselectEventAtIndex:(NSUInteger)index date:(NSDate*)date;
 - (void)monthPlannerView:(MGCMonthPlannerView*)view didDeselectEventAtIndex:(NSUInteger)index date:(NSDate*)date;
-- (void)monthPlannerView:(MGCMonthPlannerView*)view didSelectDayCellAtDate:(NSDate*)date;
+- (void)monthPlannerView:(MGCMonthPlannerView*)view didSelectDayCell:(MGCMonthPlannerViewDayCell *)cell atDate:(NSDate*)date;
 - (void)monthPlannerView:(MGCMonthPlannerView*)view didShowCell:(MGCEventView*)cell forNewEventAtDate:(NSDate*)date;
 - (void)monthPlannerView:(MGCMonthPlannerView*)view willStartMovingEventAtIndex:(NSUInteger)index date:(NSDate*)date;
 - (void)monthPlannerView:(MGCMonthPlannerView*)view didMoveEventAtIndex:(NSUInteger)index date:(NSDate*)dateOld toDate:(NSDate*)dayNew;

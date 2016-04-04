@@ -423,6 +423,12 @@ typedef enum
     }
 }
 
+- (void)reloadAll {
+    [self reloadEvents];
+    
+    [self.eventsView reloadData];
+}
+
 - (void)reloadEventsInRange:(MGCDateRange*)range
 {
     MGCDateRange *visibleDateRange = [self visibleDays];
@@ -1294,9 +1300,11 @@ typedef enum
 
 - (void)collectionView:(UICollectionView*)collectionView didSelectItemAtIndexPath:(NSIndexPath*)indexPath
 {
-    if ([self.delegate respondsToSelector:@selector(monthPlannerView:didSelectDayCellAtDate:)]) {
+    if ([self.delegate respondsToSelector:@selector(monthPlannerView:didSelectDayCell:atDate:)]) {
         NSDate *date = [self dateForDayAtIndexPath:indexPath];
-        [self.delegate monthPlannerView:self didSelectDayCellAtDate:date];
+        [self.delegate monthPlannerView:self
+                       didSelectDayCell:(MGCMonthPlannerViewDayCell *)[collectionView cellForItemAtIndexPath:indexPath]
+                                 atDate:date];
     }
 }
 

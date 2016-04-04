@@ -976,6 +976,10 @@ static const CGFloat kMaxHourSlotHeight = 150.;
             MGCEventType type = (view == self.timedEventsView) ? MGCTimedEventType : MGCAllDayEventType;
             
             [self selectEventWithDelegate:YES type:type atIndex:path.item date:date];
+        } else {
+            if ([self.delegate respondsToSelector:@selector(dayPlannerViewDidTapEmptySpace:)]) {
+                [self.delegate dayPlannerViewDidTapEmptySpace:self];
+            }
         }
     }
 }
