@@ -80,6 +80,8 @@ typedef enum : NSUInteger {
  */
 @property (nonatomic) NSCalendar *calendar;
 
+@property (nonatomic, readonly) UICollectionView *dayColumnsView;
+
 /*!
 	@abstract	Returns the number of days the view shows at once, i.e the number of columns displayed.
 	@discussion The default value is 7.

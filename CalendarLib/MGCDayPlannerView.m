@@ -100,7 +100,6 @@ static const CGFloat kMaxHourSlotHeight = 150.;
 @property (nonatomic, readonly) UICollectionView *timedEventsView;
 @property (nonatomic, readonly) UICollectionView *allDayEventsView;
 @property (nonatomic, readonly) UIView *allDayEventsBackgroundView;
-@property (nonatomic, readonly) UICollectionView *dayColumnsView;
 @property (nonatomic, readonly) UIScrollView *timeScrollView;
 @property (nonatomic, readonly) MGCTimeRowsView *timeRowsView;
 
